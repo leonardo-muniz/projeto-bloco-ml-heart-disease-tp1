@@ -1,23 +1,35 @@
-# Teste de Performance 1
+# Teste de Performance 1: Previsão de Doenças Cardíacas com KNN
 
-Chegamos a uma das etapas de preparação! A cada Teste de Performance (TP) você terá a oportunidade de praticar os conhecimentos adquiridos e receber feedbacks relevantes para o seu aprendizado.
+Este repositório contém o primeiro Teste de Performance (TP) do bloco de Machine Learning, focado na construção de um modelo de classificação para prever a presença de doenças cardíacas.
 
-### Objetivo:
-Este projeto propõe uma experiência prática em Inteligência Artificial (IA) e Machine Learning (ML), permitindo a aplicação de conceitos e técnicas adquiridos em disciplinas regulares num contexto de dados reais.
+### Objetivo
 
-### Base de dados:
-Este projeto utiliza a base de dados **"UCI Heart Disease Dataset"**, um conjunto de dados clássico para tarefas de classificação, disponível publicamente.
+O projeto visa aplicar conceitos fundamentais de Machine Learning para resolver um problema de classificação binária, utilizando dados clínicos reais para prever se um paciente possui ou não uma doença cardíaca.
 
-### Descrição das Atividades:
+### Base de Dados
 
-1. **Carregamento e Análise Inicial:** Carregar o dataset, identificar as variáveis independentes (features) e a variável alvo (target), e compreender a estrutura geral dos dados.
+O dataset utilizado é o **"UCI Heart Disease Dataset"**, um dos mais conhecidos para tarefas de classificação. 
+* **Contexto:** Ele contém 303 amostras e 13 atributos clínicos de pacientes, como idade, sexo, pressão arterial, níveis de colesterol, etc.
+* **Alvo (Target):** A variável alvo indica a presença (1) ou ausência (0) de doença cardíaca.
+* **Fonte:** O dataset pode ser encontrado em plataformas como o [Kaggle](https://www.kaggle.com/datasets/redwankarimsony/heart-disease-data).
 
-2. **Divisão dos Dados:** Separar os dados em conjuntos de treino e teste, essenciais para o desenvolvimento e a avaliação de modelos. A proporção utilizada será de 80% para treino e 20% para teste.
+### Etapas do Projeto
 
-3. **Pré-processamento e Transformação:** Utilizar transformadores do Scikit-Learn (como o StandardScaler) para padronizar as features, preparando-as para o modelo.
+O desenvolvimento do modelo seguiu um pipeline clássico de Machine Learning:
 
-4. **Treinamento do Modelo KNN:** Implementar o algoritmo K-Nearest Neighbors (KNN) utilizando o conjunto de treino.
+1.  **Análise Exploratória e Pré-processamento de Dados:**
+    * Carregamento e inspeção inicial do dataset para entender a estrutura e as características dos dados.
+    * Divisão dos dados em conjuntos de **treino (80%)** e **teste (20%)**.
+    * Padronização das features numéricas com o `StandardScaler` do Scikit-Learn para que todas tivessem a mesma escala, um requisito importante para o algoritmo KNN.
 
-5. **Avaliação do Modelo:** Avaliar a performance do modelo no conjunto de teste utilizando a métrica de acurácia.
+2.  **Treinamento e Otimização do Modelo KNN:**
+    * Implementação do algoritmo **K-Nearest Neighbors (KNN)**, um modelo baseado em instância que classifica novos dados com base na similaridade com seus vizinhos.
+    * Realização de um **ajuste de hiperparâmetros** para encontrar o valor ideal de **K** (o número de vizinhos). Foram testados múltiplos valores de K para identificar aquele que resultava na maior acurácia no conjunto de teste.
 
-6. **Ajuste de Hiperparâmetros (Otimização do K):** Explorar o impacto de diferentes valores para o hiperparâmetro K do KNN na acurácia do modelo, utilizando os dados de teste para a análise.
+3.  **Avaliação de Performance:**
+    * O desempenho do modelo final (com o K otimizado) foi avaliado no conjunto de teste, que o modelo nunca havia visto antes.
+    * A principal métrica utilizada para a avaliação foi a **acurácia (accuracy)**, que mede a proporção de previsões corretas.
+
+4.  **Conclusão e Resultados:**
+    * O modelo KNN, após a otimização, demonstrou ser uma ferramenta eficaz para a tarefa de classificação, alcançando uma acurácia de **94.57%** no conjunto de teste.
+    * O projeto serviu como uma excelente introdução prática ao fluxo de trabalho de um projeto de classificação, desde a preparação dos dados até a avaliação final do modelo.
